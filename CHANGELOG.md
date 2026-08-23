@@ -2,6 +2,22 @@
 
 All notable changes to `laravel-webhook-server` will be documented in this file
 
+## 3.11.0 - 2026-08-23
+
+Guzzle 8 is now supported alongside Guzzle 6 and 7.
+
+Guzzle 8 removes `RequestException::getResponse()`, keeps the casing of the HTTP method you pass in, and only accepts string header values. All three are handled, so webhooks keep going out as `POST` and `useTimestamp()` keeps working. The test matrix now runs against both Guzzle 7 and 8.
+
+### What's Changed
+
+* Allow Guzzle 8 by @ziming in https://github.com/spatie/laravel-webhook-server/pull/168
+
+### New Contributors
+
+* @ziming made their first contribution in https://github.com/spatie/laravel-webhook-server/pull/168
+
+**Full Changelog**: https://github.com/spatie/laravel-webhook-server/compare/3.10.0...3.11.0
+
 ## 3.10.0 - 2026-02-21
 
 ### What's Changed
@@ -24,6 +40,7 @@ WebhookCall::create()
     ->useSecret('my-secret')
     ->payload(['key' => 'value'])
     ->dispatch();
+
 
 
 ```
